@@ -14,6 +14,7 @@ fi
 # DEFAULT_BRANCH=$(curl --silent "${HOST}${CI_PROJECT_ID}" --header "PRIVATE-TOKEN:${GITLAB_PRIVATE_TOKEN}" | jq --raw-output '.default_branch');
 DEFAULT_BRANCH=${CI_DEFAULT_BRANCH}
 TARGET_BRANCH=${DEFAULT_BRANCH} && [[ ${CI_COMMIT_REF_NAME} =~ ^release\/* ]] && TARGET_BRANCH=master
+echo "Targeting branch ${TARGET_BRANCH}"
 
 # The description of our new MR, we want to remove the branch after the MR has
 # been closed
