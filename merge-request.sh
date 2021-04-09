@@ -16,14 +16,17 @@ DEFAULT_BRANCH=${CI_DEFAULT_BRANCH}
 TARGET_BRANCH=${DEFAULT_BRANCH} && [[ ${CI_COMMIT_REF_NAME} =~ ^release\/* ]] && TARGET_BRANCH=master
 echo "Targeting branch ${TARGET_BRANCH}"
 
+MR_TITLE="WIP: ${CI_COMMIT_REF_NAME}" && [[ ${TARGET_BRANCH} == "master" ]] && MR_TITLE=${CI_COMMIT_REF_NAME}
+REMOVE_SOURCE_BRANCH="true" && [[ ${TARGET_BRANCH} == "master" ]] && REMOVE_SOURCE_BRANCH="false"
+
 # The description of our new MR, we want to remove the branch after the MR has
 # been closed
 BODY="{
     \"id\": ${CI_PROJECT_ID},
     \"source_branch\": \"${CI_COMMIT_REF_NAME}\",
     \"target_branch\": \"${TARGET_BRANCH}\",
-    \"remove_source_branch\": true,
-    \"title\": \"WIP: ${CI_COMMIT_REF_NAME}\",
+    \"remove_source_branch\": ${REMOVE_SOURCE_BRANCH},
+    \"title\": \"${MR_TITLE}\",
     \"assignee_id\":\"${GITLAB_USER_ID}\"
 }";
 
