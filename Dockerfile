@@ -10,4 +10,4 @@ COPY merge-request.sh /usr/bin/
 COPY merge-request-post-deploy.sh /usr/bin/
 
 WORKDIR /usr/bin
-ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
