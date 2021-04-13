@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# 2.1.1 - 2021-04-13
+
+### Changed
+
+- improve dockerfile to be more predictable
+  - now uses `ENTRYPOINT` running bash rather than `CMD`. This is because scripts were meant to run in bash.
+
 # 2.1.0 - 2021-04-13
 
 ### Added
