@@ -32,7 +32,7 @@ stages:
   - otherStages
 
 Open Merge Request:
-  image: boy51/gitlab-auto-merge-request:1
+  image: boy51/gitlab-auto-merge-request:stable
   before_script: [] # We do not need any setup work, let's remove the global one (if any)
   variables:
     GIT_STRATEGY: none # We do not need a clone of the GIT repository to create a Merge Request
@@ -47,6 +47,8 @@ Open Merge Request:
 ```
 
 You can see this in action at [`.gitlab-ci.yml` of this project](.gitlab-ci.yml).
+
+You can run the script `merge-request-post-deploy.sh` in a similar fashion. This script is meant to run on your master branch to create a merge request from master targeting develop.
 
 ## Docker images
 
