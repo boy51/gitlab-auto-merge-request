@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+# 2.1.0 - 2021-04-13
+
+### Added
+
+- `merge-request-post-deploy.sh`: script to run when your deploy is finished, opens merge request from master to develop. This is useful when using tools like `standard-version` to create changelog and bumping version on release branch targeting master. In this flow master has to be merged into develop to match versions on branches.
+
 ## 2.0.0 - 2021-09-04
 
 ### Changed
